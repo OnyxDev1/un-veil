@@ -1,0 +1,28 @@
+export const EXCHANGE_ADDRESSES = new Set([
+  "5tzFkiKscXHK5ZXCGbXZxdw7gEs9Rn7Z6GYGFUCcVBSR",
+  "2AQdpHJ2JpcEgPiATUXjQxA8QmafFegfQwSLWSprPicm",
+  "H8sMJSCQxfKiFTCfDR3DUMLPwcRbM61LGFJ8N4dK3WjS",
+  "AC5RDfQFmDS1deWZos921JfqscXdByf8BKHs5ACWjtW2",
+  "9WzDXwBbmkg8ZTbNMqUxvQRAyrZzDsGYdLVL9zYtAWWM",
+  "CakcnaRDHka2gXyfxNmfN9fRU9QNNga28GY9tMSQRhmv",
+  "Bq3sMR89h7nw7eFRLBJUsxWJTVHJHvDkqEUPHGHC1pgh",
+  "FWznbcNXWQuHTawe9RxvQ2LdCENssh12dsznf4RiouN5",
+  "GJRs4FwHtemZ5ZE9x3FNvJ8TMwitKTh21yxdRPqn7npE",
+  "H8sMJSCQxfKiFTCfDR3DUMLPwcRbM61LGFJ8N4dK3WjS",
+]);
+
+export const DEX_PROGRAM_IDS = new Set([
+  "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+  "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+  "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",
+  "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+  "9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin",
+  "SwaPpA9LAaLfeLi3a68M4DjnLqgtticKg6CnyNwgAC8",
+  "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+  "PhoeNiXZ8ByJGLkxNfZRnkUfjvmuYqLR89jjFHGqdXY",
+  "dp2waEWSBy5yKmq65ergoU3G6qRLmqa6K7We4rZSKph",
+]);
+
+export const MEME_TOKEN_PROGRAMS = new Set([
+  "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P",
+]);
