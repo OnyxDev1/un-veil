@@ -24,7 +24,6 @@ export type WalletResult = {
   lastActive: string | null;
   status: "active" | "watching";
   txCount: number;
-  confidence: number | null; // 0–100, null for depth-1 (root wallet)
 };
 
 export type TrackState = "idle" | "scanning" | "done" | "error";

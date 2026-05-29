@@ -52,26 +52,6 @@ function TokenPill({ token }: { token: HeldToken }) {
   );
 }
 
-function ConfidenceBadge({ score }: { score: number }) {
-  let label: string;
-  let classes: string;
-  if (score >= 75) {
-    label   = `${score}% match`;
-    classes = "bg-emerald-950/60 text-emerald-400 border-emerald-800/40";
-  } else if (score >= 45) {
-    label   = `${score}% match`;
-    classes = "bg-amber-950/60 text-amber-400 border-amber-800/40";
-  } else {
-    label   = `${score}% match`;
-    classes = "bg-uv-border text-gray-500 border-uv-muted/30";
-  }
-  return (
-    <span className={`text-xs px-2 py-0.5 rounded-full border font-mono ${classes}`}>
-      {label}
-    </span>
-  );
-}
-
 export function WalletCard({ wallet }: { wallet: WalletResult }) {
   const depth = DEPTH_STYLES[wallet.depth] ?? DEPTH_STYLES[3];
   const pnlPos = wallet.pnlEstimate >= 0;
@@ -104,9 +84,6 @@ export function WalletCard({ wallet }: { wallet: WalletResult }) {
               <span className="text-xs px-2 py-0.5 rounded-full bg-uv-border text-gray-500 border border-uv-muted/30 font-mono">
                 ◎ watching
               </span>
-            )}
-            {wallet.confidence !== null && (
-              <ConfidenceBadge score={wallet.confidence} />
             )}
           </div>
         </div>
