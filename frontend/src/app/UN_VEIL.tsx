@@ -60,11 +60,6 @@ export default function UnVeil() {
           </div>
         </header>
 
-        {/* CA display — below header */}
-        <div className="font-mono text-sm mb-6 px-1">
-          <span className="text-uv-yellow font-bold">CA: </span>
-          <span className="text-emerald-400">94SknxRxCDodZ1WdPjnaEqcm5y5eP4THG5jseAHVpump</span>
-        </div>
 
         <div className="mb-10">
           <p className="text-gray-500 text-sm mb-4 leading-relaxed">
