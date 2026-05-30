@@ -7,7 +7,19 @@ import { StatsBar } from "../components/StatsBar";
 
 export default function UnVeil() {
   const [input, setInput] = useState("");
+  const [caInput, setCaInput] = useState("");
+  const [ca, setCa] = useState("");
   const { track, reset, state, wallets, statusMsg, error } = useWalletTracker();
+
+  function handleSetCa() {
+    const val = caInput.trim();
+    if (!val) return;
+    setCa(val);
+  }
+
+  function handleCaKeyDown(e: React.KeyboardEvent) {
+    if (e.key === "Enter") handleSetCa();
+  }
 
   function handleTrack() {
     const addr = input.trim();
@@ -65,6 +77,33 @@ export default function UnVeil() {
             Paste any Solana wallet. UN/VEIL traces where the funds went, filters exchanges,
             and surfaces wallets actively trading meme tokens — in real time.
           </p>
+
+          {/* CA input */}
+          <div className="flex gap-2 mb-3">
+            <input
+              type="text"
+              value={caInput}
+              onChange={e => setCaInput(e.target.value)}
+              onKeyDown={handleCaKeyDown}
+              placeholder="Paste token CA (optional)…"
+              className="flex-1 bg-uv-card border border-uv-border rounded-lg px-4 py-2.5 font-mono text-sm text-white placeholder:text-gray-700 focus:outline-none focus:border-uv-yellow/40 transition-colors"
+            />
+            <button
+              onClick={handleSetCa}
+              disabled={!caInput.trim()}
+              className="px-4 py-2.5 bg-uv-card border border-uv-border text-gray-400 text-sm font-mono rounded-lg hover:border-uv-yellow/40 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            >
+              Set
+            </button>
+          </div>
+
+          {/* CA display */}
+          {ca && (
+            <div className="font-mono text-sm mb-4 px-1">
+              <span className="text-uv-yellow font-bold">CA: </span>
+              <span className="text-emerald-400">{ca}</span>
+            </div>
+          )}
           <div className="relative">
             <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-uv-yellow rounded-full" />
             <div className="flex gap-2">
