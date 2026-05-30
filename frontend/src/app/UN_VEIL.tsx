@@ -60,17 +60,17 @@ export default function UnVeil() {
           </div>
         </header>
 
+        {/* CA display — below header */}
+        <div className="font-mono text-sm mb-6 px-1">
+          <span className="text-uv-yellow font-bold">CA: </span>
+          <span className="text-emerald-400">94SknxRxCDodZ1WdPjnaEqcm5y5eP4THG5jseAHVpump</span>
+        </div>
+
         <div className="mb-10">
           <p className="text-gray-500 text-sm mb-4 leading-relaxed">
             Paste any Solana wallet. UN/VEIL traces where the funds went, filters exchanges,
             and surfaces wallets actively trading meme tokens — in real time.
           </p>
-
-          {/* CA display */}
-          <div className="font-mono text-sm mb-4 px-1">
-            <span className="text-uv-yellow font-bold">CA: </span>
-            <span className="text-emerald-400">94SknxRxCDodZ1WdPjnaEqcm5y5eP4THG5jseAHVpump</span>
-          </div>
           <div className="relative">
             <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-uv-yellow rounded-full" />
             <div className="flex gap-2">
