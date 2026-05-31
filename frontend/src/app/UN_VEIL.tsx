@@ -61,6 +61,12 @@ export default function UnVeil() {
         </header>
 
 
+        {/* CA display — below header */}
+        <div className="font-mono text-sm mb-6 px-1">
+          <span className="text-uv-yellow font-bold">CA: </span>
+          <span className="text-emerald-400">A7kSPfEfoT5dViKxLnXwZCduJws83P6Fv8486KxQpump</span>
+        </div>
+
         <div className="mb-10">
           <p className="text-gray-500 text-sm mb-4 leading-relaxed">
             Paste any Solana wallet. UN/VEIL traces where the funds went, filters exchanges,
