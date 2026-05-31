@@ -2,12 +2,33 @@ import fetch from "node-fetch";
 
 const RPC = "https://mainnet.helius-rpc.com";
 
-function rpcUrl(apiKey) {
-  return `${RPC}/?api-key=${apiKey}`;
+// ─── Round-robin key rotation ─────────────────────────────────────────────────
+let _keys = [];
+let _cursor = 0;
+
+export function initKeys(keys) {
+  _keys = keys.filter(Boolean);
+  if (_keys.length === 0) throw new Error("No Helius API keys configured");
+  console.log(`Helius: ${_keys.length} key(s) loaded`);
 }
 
-export async function getTransactionHistory(address, apiKey, limit = 100) {
-  const url = `https://api.helius.xyz/v0/addresses/${address}/transactions?api-key=${apiKey}&limit=${limit}`;
+function nextKey() {
+  const key = _keys[_cursor % _keys.length];
+  _cursor++;
+  return key;
+}
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function rpcUrl(key) {
+  return `${RPC}/?api-key=${key}`;
+}
+
+// ─── Exports ──────────────────────────────────────────────────────────────────
+
+export async function getTransactionHistory(address, _ignored, limit = 100) {
+  const key = nextKey();
+  const url = `https://api.helius.xyz/v0/addresses/${address}/transactions?api-key=${key}&limit=${limit}`;
   const res = await fetch(url);
   if (!res.ok) {
     const text = await res.text();
@@ -16,8 +37,9 @@ export async function getTransactionHistory(address, apiKey, limit = 100) {
   return res.json();
 }
 
-export async function getSolBalance(address, apiKey) {
-  const res = await fetch(rpcUrl(apiKey), {
+export async function getSolBalance(address, _ignored) {
+  const key = nextKey();
+  const res = await fetch(rpcUrl(key), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -31,8 +53,9 @@ export async function getSolBalance(address, apiKey) {
   return (data.result?.value ?? 0) / 1e9;
 }
 
-export async function getHeldTokens(address, apiKey) {
-  const res = await fetch(rpcUrl(apiKey), {
+export async function getHeldTokens(address, _ignored) {
+  const key = nextKey();
+  const res = await fetch(rpcUrl(key), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
